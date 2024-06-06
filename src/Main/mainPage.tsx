@@ -11,7 +11,7 @@ const MainPage = () => {
   const [loading, setLoading] = useState(false);
   const [created, setCreated] = useState(false);
   const [questionSize, setQuestionSize] = useState(0);
-  const [documentId, setDocumentId] = useState(0);
+  const [documentId, setDocumentId] = useState<number | null>(null);
   const [questionId, setQuestionId] = useState(0);
   const [content, setContent] = useState<string | null>(null);
 
@@ -176,8 +176,4 @@ const StUploadSubtitle = styled.span`
   color: #acafbb;
   font-size: 0.5rem;
   font-weight: 700;
-`;
-
-const StUploadMsg = styled.span`
-  display: block;
 `;

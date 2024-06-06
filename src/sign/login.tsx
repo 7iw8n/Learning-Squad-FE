@@ -1,12 +1,12 @@
-import React, { useState, ChangeEvent } from "react";
+import React from "react";
 import styled from "@emotion/styled";
-import { signInInstance } from "../common/apis/axiosInstance";
-import { useNavigate } from "react-router-dom";
+// import { signInInstance } from "../common/apis/axiosInstance";
+// import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
-  const navigate = useNavigate();
-  const [userName, setUserName] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  // const navigate = useNavigate();
+  // const [userName, setUserName] = useState<string>("");
+  // const [password, setPassword] = useState<string>("");
 
   // const onChangeUserName = (event: ChangeEvent<HTMLInputElement>) => {
   //   setUserName(event.target.value);
@@ -101,34 +101,34 @@ const StLoginTitleBottom = styled.span`
   font-weight: 600;
 `;
 
-const StInputBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 17rem;
-  height: 3rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border-radius: 20px;
-  background-color: #e6efff;
-  color: #81a1e1;
-  font-size: 0.8rem;
-  font-weight: 700;
-  cursor: pointer;
-  gap: 1rem;
-`;
+// const StInputBox = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   width: 17rem;
+//   height: 3rem;
+//   margin-top: 1rem;
+//   margin-bottom: 1rem;
+//   padding: 1rem;
+//   border-radius: 20px;
+//   background-color: #e6efff;
+//   color: #81a1e1;
+//   font-size: 0.8rem;
+//   font-weight: 700;
+//   cursor: pointer;
+//   gap: 1rem;
+// `;
 
-const StLabel = styled.label`
-  display: block;
-  width: 5rem;
-  padding-left: 1rem;
-`;
+// const StLabel = styled.label`
+//   display: block;
+//   width: 5rem;
+//   padding-left: 1rem;
+// `;
 
-const StInput = styled.input`
-  width: 8rem;
-  font-size: 0.8rem;
-`;
+// const StInput = styled.input`
+//   width: 8rem;
+//   font-size: 0.8rem;
+// `;
 
 const StLoginBtn = styled.button`
   bottom: 9rem;
@@ -153,18 +153,18 @@ const StLoginBtn = styled.button`
   cursor: pointer;
 `;
 
-const StSignOnMent = styled.span`
-  width: 10rem;
-  margin-top: 2rem;
-  color: #c7c8ca;
-  text-align: center;
-  font-size: 0.8rem;
-`;
+// const StSignOnMent = styled.span`
+//   width: 10rem;
+//   margin-top: 2rem;
+//   color: #c7c8ca;
+//   text-align: center;
+//   font-size: 0.8rem;
+// `;
 
-const StSignOnBtn = styled.button`
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  text-decoration: underline;
-`;
+// const StSignOnBtn = styled.button`
+//   font-size: 1rem;
+//   cursor: pointer;
+//   margin-top: 0.5rem;
+//   font-size: 0.9rem;
+//   text-decoration: underline;
+// `;

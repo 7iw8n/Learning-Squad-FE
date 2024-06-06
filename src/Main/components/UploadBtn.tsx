@@ -5,7 +5,7 @@ import instance from "../../common/apis/axiosInstance";
 
 interface UploadBtnProps {
   uploaded: boolean;
-  documentId: number;
+  documentId: number | null;
   setLoading: (loading: boolean) => void;
   setUploaded: (uploaded: boolean) => void;
   setCreated: (created: boolean) => void;
@@ -22,7 +22,7 @@ const UploadBtn: React.FC<UploadBtnProps> = ({
   setQuestionSize,
   setDocumentId,
 }) => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [, setSelectedFile] = useState<File | null>(null);
   const [uploadedFileName, setUploadedFileName] = useState("");
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {

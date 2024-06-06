@@ -179,14 +179,6 @@ const StFileInfo = styled.span`
   padding: 3rem 5rem 1rem 1.5rem;
 `;
 
-const StUploadBox = styled.div`
-  width: 13rem;
-  height: 7rem;
-  padding: 1rem;
-  background-color: #ffffff;
-  border-radius: 10px;
-`;
-
 const StDocumentList = styled.div`
   display: flex;
   flex-direction: column;

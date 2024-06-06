@@ -1,9 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Landing from "./common/landing";
 import Login from "./sign/login";
-import SignOn from "./sign/signOn";
 import MainPage from "./Main/mainPage";
-import Learning from "./Main/components/Learning";
 import AuthKakao from "./sign/AuthKakao";
 import MyPage from "./mypage/myPage";
 import MyLog from "./learningLog/myLog";

@@ -1,6 +1,6 @@
 // import { useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
-import { Global, ThemeProvider } from "@emotion/react";
+import { Global } from "@emotion/react";
 import globalStyles from "./common/styles/globalStyles";
 import router from "./Router";
 
