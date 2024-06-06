@@ -4,7 +4,7 @@ import instance from "../../common/apis/axiosInstance";
 interface CreateInfoProps {
   created: boolean;
   questionSize: number;
-  documentId: number;
+  documentId: number | null;
   setCreated: (created: boolean) => void;
   setQuestionId: (id: number) => void;
   setContent: (content: string) => void;
@@ -23,7 +23,7 @@ const CreateInfo: React.FC<CreateInfoProps> = ({
       const res = await instance.get("/api/questions", {
         params: {
           documentId: documentId,
-          questionNum: 1,
+          questionNum: questionNum,
         },
       });
 
