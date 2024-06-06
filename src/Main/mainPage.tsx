@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import NavBar from "../common/components/NavBar";
 import UploadBtn from "./components/UploadBtn";
@@ -8,8 +7,6 @@ import CreateInfo from "./components/CreateInfo";
 import Learnings from "./components/Learning";
 
 const MainPage = () => {
-  const navigate = useNavigate();
-
   const [uploaded, setUploaded] = useState(false);
   const [loading, setLoading] = useState(false);
   const [created, setCreated] = useState(false);
@@ -24,16 +21,6 @@ const MainPage = () => {
     setUploaded(uploadedStatus);
     setCreated(createdStatus);
   }, []);
-
-  const handleClickNavBtn = (btn: string) => {
-    if (btn === "learning") {
-      navigate("/main-page");
-    } else if (btn === "log") {
-      navigate("/myLog");
-    } else if (btn === "mypage") {
-      navigate("/myPage");
-    }
-  };
 
   useEffect(() => {
     localStorage.setItem("uploaded", String(uploaded));
@@ -130,6 +117,7 @@ const StFileWrapper = styled.div`
 `;
 
 const StMainWrapper = styled.div`
+  width: 100%;
   flex: 1;
   height: 100%;
   background-color: #ffffff;

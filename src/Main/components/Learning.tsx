@@ -157,7 +157,7 @@ const Learning: React.FC<LearningProps> = ({
                 <StLearningWrapper style={{ marginBottom: "2rem" }}>
                   <Logowhite
                     style={{
-                      width: "3rem",
+                      width: "2rem",
                       height: "2rem",
                       background: "#c0d0f1",
                       padding: "0.3rem",
@@ -198,11 +198,10 @@ const StLearningContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
   height: 100%;
   gap: 1rem;
   padding: 10rem 5rem 15rem 5rem;
-  overflow-y: auto;
+  overflow-y: hidden;
 `;
 
 const StLearningWrapper = styled.div`
@@ -229,7 +228,7 @@ const StAnswerWrapper = styled.div`
   justify-content: end;
   align-items: center;
   width: 100%;
-  margin-left: 10rem;
+  margin-right: 10rem;
 `;
 
 const StAnswerBox = styled.p`
