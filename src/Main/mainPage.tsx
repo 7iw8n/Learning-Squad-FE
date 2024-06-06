@@ -121,6 +121,7 @@ const StMainWrapper = styled.div`
   flex: 1;
   height: 100%;
   background-color: #ffffff;
+  overflow-y: scroll;
 `;
 
 const StFileLogoBox = styled.div`

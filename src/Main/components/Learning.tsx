@@ -84,46 +84,56 @@ const Learning: React.FC<LearningProps> = ({
         const questionIndex = prevAnswers.findIndex(
           (answer) => answer.questionId === currentQuestion.questionId
         );
+
         if (questionIndex !== -1) {
-          const updatedAnswers = [...prevAnswers];
-          updatedAnswers[questionIndex].answers = [
-            ...updatedAnswers[questionIndex].answers,
+          return prevAnswers.map((prevAnswer, index) => {
+            if (index !== questionIndex) {
+              return prevAnswer;
+            }
+
+            return {
+              ...prevAnswer,
+              answers: [
+                ...prevAnswer.answers,
+                {
+                  answer: userAnswer,
+                  serverResponse: {
+                    response: correctAnswer,
+                    feedbackMessage:
+                      newScore < 50
+                        ? `해당 답변에 대한 점수는 ${newScore}점입니다. 답변을 다시 입력해주세요.`
+                        : `해당 답변에 대한 점수는 ${newScore}점입니다. \n[모범 답안]\n${correctAnswer}`,
+                  },
+                },
+              ],
+            };
+          });
+        } else {
+          return [
+            ...prevAnswers,
             {
-              answer: userAnswer,
-              serverResponse: {
-                response: correctAnswer,
-                feedbackMessage:
-                  newScore < 50
-                    ? `해당 답변에 대한 점수는 ${newScore}점입니다. 답변을 다시 입력해주세요.`
-                    : `해당 답변에 대한 점수는 ${newScore}점입니다. \n[모범 답안]\n${correctAnswer}`,
-              },
+              questionId: currentQuestion.questionId,
+              answers: [
+                {
+                  answer: userAnswer,
+                  serverResponse: {
+                    response: correctAnswer,
+                    feedbackMessage:
+                      newScore < 50
+                        ? `해당 답변에 대한 점수는 ${newScore}점입니다. 답변을 다시 입력해주세요.`
+                        : `해당 답변에 대한 점수는 ${newScore}점입니다. \n[모범 답안]\n${correctAnswer}`,
+                  },
+                },
+              ],
             },
           ];
-          return updatedAnswers;
         }
-        return [
-          ...prevAnswers,
-          {
-            questionId: currentQuestion.questionId,
-            answers: [
-              {
-                answer: userAnswer,
-                serverResponse: {
-                  response: correctAnswer,
-                  feedbackMessage:
-                    newScore < 50
-                      ? `해당 답변에 대한 점수는 ${newScore}점입니다. 답변을 다시 입력해주세요.`
-                      : `해당 답변에 대한 점수는 ${newScore}점입니다. \n[모범 답안]\n${correctAnswer}`,
-                },
-              },
-            ],
-          },
-        ];
       });
 
       setUserAnswer("");
-      console.log(newScore);
-      console.log(userAnswer);
+
+      console.log("응답값 :", res);
+      console.log(userAnswers);
     } catch (error) {
       console.log(error);
     }
@@ -157,7 +167,7 @@ const Learning: React.FC<LearningProps> = ({
                 <StLearningWrapper style={{ marginBottom: "2rem" }}>
                   <Logowhite
                     style={{
-                      width: "2rem",
+                      minWidth: "2rem",
                       height: "2rem",
                       background: "#c0d0f1",
                       padding: "0.3rem",
@@ -198,25 +208,22 @@ const StLearningContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
   gap: 1rem;
-  padding: 10rem 5rem 15rem 5rem;
-  overflow-y: hidden;
+  margin: 2rem 10rem 10rem 10rem;
 `;
 
 const StLearningWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: start;
-  align-items: center;
+  align-items: start;
   width: 100%;
   flex: 1;
-  margin-left: 10rem;
   gap: 0.6rem;
+  overflow-y: scroll;
 `;
 
 const StLearningBox = styled.span`
-  display: block;
   color: #575859;
   font-size: 1rem;
   font-weight: 600;
@@ -228,11 +235,11 @@ const StAnswerWrapper = styled.div`
   justify-content: end;
   align-items: center;
   width: 100%;
-  margin-right: 10rem;
 `;
 
 const StAnswerBox = styled.p`
   padding: 0.5rem 1rem;
+  margin-left: 10rem;
   color: #575859;
   font-size: 1rem;
   font-weight: 600;
