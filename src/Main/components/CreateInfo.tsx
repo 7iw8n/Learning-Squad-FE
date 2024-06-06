@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useState } from "react";
 import instance from "../../common/apis/axiosInstance";
 
 interface CreateInfoProps {
@@ -18,12 +19,19 @@ const CreateInfo: React.FC<CreateInfoProps> = ({
   setQuestionId,
   setContent,
 }) => {
+  const [currentQuestionNum] = useState<number>(1);
+
   const handleClickBtn = async () => {
+    if (questionSize !== null && currentQuestionNum > questionSize) {
+      alert("모든 문제를 다 풀었습니다.");
+      return;
+    }
+
     try {
       const res = await instance.get("/api/questions", {
         params: {
           documentId: documentId,
-          questionNum: questionNum,
+          questionNum: currentQuestionNum,
         },
       });
 
