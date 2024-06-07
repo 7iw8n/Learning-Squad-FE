@@ -36,6 +36,12 @@ const Learning: React.FC<LearningProps> = ({
     setUserAnswer(event.target.value);
   };
 
+  const activeEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      handleClickSendBtn();
+    }
+  };
+
   const handleQuestion = async () => {
     if (questionSize !== null && currentQuestionNum > questionSize) {
       alert("모든 문제를 다 풀었습니다.");
@@ -192,6 +198,7 @@ const Learning: React.FC<LearningProps> = ({
           value={userAnswer}
           placeholder="답변을 입력해주세요"
           onChange={onChangeAnswer}
+          onKeyDown={activeEnter}
         />
         <StSendAnswerBtn onClick={handleClickSendBtn}>
           <Send style={{ width: "1.5rem" }} />
@@ -259,7 +266,7 @@ const StSendAnswerWrapper = styled.div`
   margin-bottom: 3rem;
   background: #eff0f5;
   border-radius: 10px;
-  gap: 8rem;
+  gap: 2rem;
 `;
 
 const StSendAnswerBox = styled.input`
@@ -267,7 +274,7 @@ const StSendAnswerBox = styled.input`
   display: flex;
   flex-direction: row;
   justify-content: start;
-  padding: 0.3rem 1.5rem;
+  padding: 0.3rem 0rem 0.3rem 1.5rem;
   color: #999ba3;
   font-size: 1.1rem;
   font-weight: 600;
