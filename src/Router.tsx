@@ -5,6 +5,7 @@ import MainPage from "./Main/mainPage";
 import AuthKakao from "./sign/AuthKakao";
 import MyPage from "./mypage/myPage";
 import MyLog from "./learningLog/myLog";
+import SignOn from "./sign/signOn";
 
 const router = createBrowserRouter([
   {
@@ -12,8 +13,12 @@ const router = createBrowserRouter([
     element: <Landing />,
   },
   {
-    path: "login",
+    path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/sign-on",
+    element: <SignOn />,
   },
   {
     path: "/kakao/callback",

@@ -41,6 +41,14 @@ const SignOn: React.FC = () => {
 
   return (
     <StSignOnContainer>
+      <StFileLogoBox>
+        <StFileTitleTop>
+          <StFileTitleBold>L</StFileTitleBold>earning
+        </StFileTitleTop>
+        <StFileTitleBottom>
+          <StFileTitleBold>S</StFileTitleBold>quad
+        </StFileTitleBottom>
+      </StFileLogoBox>
       <StInputBox>
         <StLabel>아이디</StLabel>
         <StInput value={userName} onChange={onChangeUserName} />
@@ -70,25 +78,65 @@ const StSignOnContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+`;
+
+const StFileLogoBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 5rem;
+`;
+
+const StFileTitleTop = styled.span`
+  display: block;
+  padding-left: 1rem;
+  color: #b5b5b5;
+  font-size: 2rem;
+  font-weight: 700;
+`;
+
+const StFileTitleBottom = styled.span`
+  display: block;
+  margin-right: 3rem;
+  color: #b5b5b5;
+  font-size: 2rem;
+  font-weight: 700;
+`;
+
+const StFileTitleBold = styled.span`
+  color: #7d7d86;
+  font-size: 2rem;
+  font-weight: 700;
 `;
 
 const StInputBox = styled.div`
+  min-width: 20rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 1.5rem;
   margin-bottom: 1rem;
+  border-radius: 10px;
+  background: #dee7fb;
+  font-weight: 600;
+  gap: 2rem;
 `;
 
 const StLabel = styled.label`
-  display: block;
-  margin-bottom: 0.5rem;
+  width: 4rem;
 `;
 
 const StInput = styled.input`
-  width: 20rem;
-  padding: 0.5rem;
   font-size: 1rem;
 `;
 
 const StSignOnBtn = styled.button`
+  background: #d9dee2;
   padding: 0.5rem 1rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
   cursor: pointer;
 `;

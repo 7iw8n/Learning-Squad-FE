@@ -33,15 +33,15 @@ const MyPage = () => {
     console.log(nickName);
     try {
       const res = await instance.put("/api/users/updateNickName", {
-        params: {
-          nickName: nickName,
-        },
+        nickName: nickName,
       });
 
       console.log(res);
     } catch (error) {
       console.log(error);
     }
+
+    setEditNickName(false);
   };
 
   return (
