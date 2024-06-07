@@ -42,6 +42,11 @@ const MyLog: React.FC = () => {
     handleLearningLog();
   }, []);
 
+  const uniqueDocuments = documents.filter(
+    (document, index, self) =>
+      index === self.findIndex((d) => d.title === document.title)
+  );
+
   const handleClickDocument = (document: Document) => {
     setSelectedDocument(document);
   };
@@ -62,7 +67,7 @@ const MyLog: React.FC = () => {
         </StFileLogoBox>
         <StFileInfo>Documnet Overview</StFileInfo>
         <StDocumentList>
-          {documents.map((document) => (
+          {uniqueDocuments.map((document) => (
             <StDocumentTitle
               key={document.documentId}
               onClick={() => handleClickDocument(document)}
