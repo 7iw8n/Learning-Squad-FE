@@ -175,7 +175,7 @@ const StBtnBox = styled.div`
   border: 2px solid #d5d8dc;
   background: #f8f9fa;
   color: #6d6d6d;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 700;
   cursor: pointer;
 `;
