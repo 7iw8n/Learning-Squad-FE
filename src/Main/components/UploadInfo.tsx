@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Upload } from "../assets/index";
-import Spinner from "../assets/loading.gif";
+// import Spinner from "../assets/loading.gif";
 
 interface UploadInfoProps {
   loading: boolean;
@@ -11,7 +11,7 @@ const UploadInfo: React.FC<UploadInfoProps> = ({ loading }) => {
     <StUploadInfo>
       {loading ? (
         <>
-          <img src={Spinner} alt="로딩중" width="130rem" />
+          {/* <img src={Spinner} alt="로딩중" width="130rem" /> */}
           <StLoadingMsg>문제 생성 중..</StLoadingMsg>
         </>
       ) : (
